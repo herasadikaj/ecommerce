@@ -1,0 +1,33 @@
+/* Global CSS for light and dark mode */
+body {
+    background-color: #ffffff;
+    color: #000000;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Additional elements like buttons, cards, etc. */
+button {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-theme button {
+    background-color: #444;
+    color: #fff;
+}
+
+/* Example card styling */
+.card {
+    background-color: #f9f9f9;
+    color: #000;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-theme .card {
+    background-color: #333;
+    color: #fff;
+}
