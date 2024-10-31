@@ -1,8 +1,9 @@
-/* Global CSS for light and dark mode */
+
 body {
     background-color: #ffffff;
     color: #000000;
     transition: background-color 0.3s, color 0.3s;
+    width: 100%;
 }
 
 body.dark-theme {
@@ -10,7 +11,7 @@ body.dark-theme {
     color: #ffffff;
 }
 
-/* Additional elements like buttons, cards, etc. */
+
 button {
     transition: background-color 0.3s, color 0.3s;
 }
@@ -20,8 +21,44 @@ body.dark-theme button {
     color: #fff;
 }
 
-/* Example card styling */
+
+.layout_footer {
+    background-color: #f1f1f1; 
+    color: #000000;
+    padding: 1rem;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-theme .layout_footer {
+    background-color: #333333; 
+    color: #ffffff; 
+}
+
+.layout_navbar {
+    margin-bottom: 1.5rem; 
+}
+
+.layout_footer {
+    margin-top: 1.5rem; 
+    padding: 1rem;
+    text-align: center;
+    background-color: #f1f1f1; 
+    color: #000000; 
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+body.dark-theme .layout_footer {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+
 .card {
+    top:100px;
+    margin: 1rem 0; 
+    padding: 1rem;
     background-color: #f9f9f9;
     color: #000;
     transition: background-color 0.3s, color 0.3s;
@@ -30,4 +67,12 @@ body.dark-theme button {
 body.dark-theme .card {
     background-color: #333;
     color: #fff;
+}
+
+.links{
+    gap: 30px;
+}
+
+.cards{
+    top:100px;
 }
