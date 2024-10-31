@@ -4,6 +4,7 @@ body {
     color: #000000;
     transition: background-color 0.3s, color 0.3s;
     width: 100%;
+    box-sizing: border-box;
 }
 
 body.dark-theme {
@@ -54,7 +55,10 @@ body.dark-theme .layout_footer {
     color: #ffffff;
 }
 
-
+button.dark-theme{
+    background-color: black;
+    color: white;
+}
 .card {
     top:100px;
     margin: 1rem 0; 
@@ -75,4 +79,64 @@ body.dark-theme .card {
 
 .cards{
     top:100px;
+}
+
+.butonat{
+    display: flex;
+}
+
+
+/* style.css */
+
+
+
+.layout {
+    width: 100%; /* Full width for the layout */
+    padding: 20px;
+}
+
+.cart-page-container {
+    max-width: 100%; /* Full width of the cart container */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul {
+    width: 100%;
+    padding: 0;
+    list-style: none;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    width: 100%; /* Ensures items span the full width */
+}
+
+.cart-item img {
+    width: 300px;
+    height: 300px;
+    border-radius: 8px;
+}
+
+.cart-item button {
+    width: 200px;
+    height: 50px;
+}
+
+.total-price, .clear-cart {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.clear-cart {
+    width: 200px;
+    height: 50px;
+    background-color: red;
+    color: white;
+    margin: 20px auto;
 }

@@ -6,7 +6,7 @@ import Layout from './Layout/Layout';
 
 const Detail = () => {
     const { articleId } = useParams();
-    const { articles, addToCart, removeFromCart } = useAppContext();
+    const { articles, addToCart, removeFromCart, cartCount } = useAppContext();
 
     const article = articles.find(item => item.id === parseInt(articleId));
 
@@ -30,10 +30,11 @@ const Detail = () => {
                         <p><strong>Description:</strong> {article.description}</p>
 
                         
-                        <div>
+                        <div className='butonat'>
                             <button onClick={() => addToCart(article)}>+</button>
+                            <p>Added: {cartCount}</p>
                             <button onClick={() => removeFromCart(article.id)}>-</button>
-                        </div>
+                            </div>
                     </div>
                 ) : (
                     <p>Article not found.</p>
