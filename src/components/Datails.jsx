@@ -30,7 +30,7 @@ const Detail = () => {
                         <p><strong>Description:</strong> {article.description}</p>
 
                         
-                        <div className='butonat'>
+                        <div className="buttons" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
                             <button onClick={() => addToCart(article)}>+</button>
                             <p>Added: {cartCount}</p>
                             <button onClick={() => removeFromCart(article.id)}>-</button>

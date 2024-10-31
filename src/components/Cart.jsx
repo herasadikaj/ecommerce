@@ -5,7 +5,7 @@ import Layout from './Layout/Layout';
 import './style.css';
 
 const CartPage = () => {
-    const { cartItems, removeFromCart, clearCart } = useAppContext();
+    const { cartItems, removeFromCart, clearCart , addToCart, cartCount} = useAppContext();
 
     const totalPrice = cartItems.reduce((acc, item) => {
         const price = parseFloat(item.price);
@@ -15,7 +15,7 @@ const CartPage = () => {
 
     return (
         <Layout>
-            <div className="cart-page-container">
+       <div className="cart-page-container" style={{ width: '100vw' }}>
                 <h2>Shopping Cart</h2>
                 {cartItems.length === 0 ? (
                     <p>Your cart is empty.</p>
@@ -29,6 +29,7 @@ const CartPage = () => {
                                         <h3>{item.name}</h3>
                                         <p>Price: ${parseFloat(item.price).toFixed(2)}</p>
                                         <p>Quantity: {parseInt(item.quantity, 10)}</p>
+                                        
                                         <button onClick={() => removeFromCart(item.id)}>Remove</button>
                                     </div>
                                 </li>

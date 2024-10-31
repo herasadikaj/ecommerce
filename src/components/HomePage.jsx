@@ -3,7 +3,7 @@ import React from 'react';
 import { useAppContext } from '../components/Context/Context';  
 import { Link } from 'react-router-dom'; 
 import Layout from './Layout/Layout';
-
+import './style.css';
 const HomePage = () => {
 
     const { articles, addToCart, removeFromCart, cartItems } = useAppContext();
@@ -15,6 +15,7 @@ const HomePage = () => {
 
     return (
         <Layout>
+            <br/>
             <div className="cards">
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center' }}>
                     {articles.length > 0 ? (
@@ -29,7 +30,7 @@ const HomePage = () => {
                                 <img src={article.image} alt={article.name} style={{ width: '100%', borderRadius: '8px' }} />
                                 <h3>{article.name}</h3>
                                 <p>{article.price}</p>
-                                <div className="butonat">
+                                <div className="buttons" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
                                     <button onClick={() => addToCart(article)}>+</button>
                                     <p>Added: {getItemQuantity(article.id)}</p>
                                     <button onClick={() => removeFromCart(article.id)}>-</button>
