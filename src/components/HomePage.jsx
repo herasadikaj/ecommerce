@@ -6,12 +6,8 @@ import Layout from './Layout/Layout';
 import './style.css';
 const HomePage = () => {
 
-    const { articles, addToCart, removeFromCart, cartItems } = useAppContext();
+    const { articles, addToCart, removeFromCart, cartItems, getItemQuantity } = useAppContext();
 
-    const getItemQuantity = (id) => {
-        const item = cartItems.find((cartItem) => cartItem.id === id);
-        return item ? item.quantity : 0;
-    };
 
     return (
         <Layout>

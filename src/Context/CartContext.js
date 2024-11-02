@@ -1,34 +1,22 @@
-import { useState} from 'react';
+import { useState } from 'react';
 
 export const useCart = () => {
     const [cartItems, setCartItems] = useState(() => {
         const savedCart = localStorage.getItem('cartItems');
         return savedCart ? JSON.parse(savedCart) : [];
     });
-
-    const addToCart = (article) => {
-        setCartItems(prevItems => {
-            const existingItem = prevItems.find(item => item.id === article.id);
-            let updatedItems;
-    
-            if (existingItem) {
-               
-                updatedItems = prevItems.map(item =>
-                    item.id === article.id
-                        ? { ...item, quantity: item.quantity + 1 }
-                        : item
-                );
-            } else {
-                
-                updatedItems = [...prevItems, { ...article, quantity: 1 }];
-            }
-    
-            localStorage.setItem('cartItems', JSON.stringify(updatedItems));
-    
-            return updatedItems;
-        });
+    const addToCart = (product) => {
+        const existingItem = cartItems.find(item => item.id === product.id);
+        if (existingItem) {
+      
+            setCartItems(cartItems.map(item => 
+                item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+            ));
+        } else {
+        
+            setCartItems([...cartItems, { ...product, quantity: 1 }]);
+        }
     };
-    
     
 
     const removeFromCart = (articleId) => {
@@ -46,5 +34,18 @@ export const useCart = () => {
 
     const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
-    return { cartItems, addToCart, removeFromCart, clearCart, cartCount };
+    
+ 
+const totalPrice = cartItems.reduce((acc, item) => {
+    const price = parseFloat(item.price || 0); 
+    const quantity = parseInt(item.quantity, 10);
+    return acc + (price * quantity);
+}, 0) || 0; 
+
+
+const getItemQuantity = (id) => {
+    const item = cartItems.find((cartItem) => cartItem.id === id);
+    return item ? item.quantity : 0;
+};
+    return { cartItems, addToCart, removeFromCart, clearCart, cartCount, totalPrice , getItemQuantity};
 };
