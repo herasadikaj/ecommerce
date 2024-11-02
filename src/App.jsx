@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { AppProvider } from './components/Context/Context';
+import { AppProvider } from './Context/Context';
 import HomePage from './components/HomePage';
 import ArticleDetail from './components/Datails';
 import Cart from './components/Cart';

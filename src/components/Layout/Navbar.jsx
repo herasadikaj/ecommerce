@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { useAppContext } from '../Context/Context';  
+import { useAppContext } from '../../Context/Context';  
 import { Link } from 'react-router-dom'; 
 import { FaSun, FaMoon, FaShoppingCart } from 'react-icons/fa';
 

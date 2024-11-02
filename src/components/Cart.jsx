@@ -1,16 +1,17 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { useAppContext } from './Context/Context'; 
+import { useAppContext } from '../Context/Context'; 
 import Layout from './Layout/Layout';
 import './style.css';
-
+import { Link } from 'react-router-dom'; 
 const CartPage = () => {
     const { cartItems, removeFromCart, clearCart , addToCart, cartCount} = useAppContext();
 
     const totalPrice = cartItems.reduce((acc, item) => {
         const price = parseFloat(item.price);
         const quantity = parseInt(item.quantity, 10);
-        return !isNaN(price) && !isNaN(quantity) ? acc + (price * quantity) : acc;
+        return acc + ((price || 0) * (quantity || 0));
+
     }, 0);
 
     return (
@@ -29,7 +30,9 @@ const CartPage = () => {
                                         <h3>{item.name}</h3>
                                         <p>Price: ${parseFloat(item.price).toFixed(2)}</p>
                                         <p>Quantity: {parseInt(item.quantity, 10)}</p>
-                                        
+                                        <Link to={`/article/${item.id}`}>
+                                         View Details
+                                        </Link>  <br/>
                                         <button onClick={() => removeFromCart(item.id)}>Remove</button>
                                     </div>
                                 </li>

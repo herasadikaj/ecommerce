@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { useAppContext } from '../components/Context/Context';  
+import { useAppContext } from '../Context/Context';  
 import { Link } from 'react-router-dom'; 
 import Layout from './Layout/Layout';
 import './style.css';
