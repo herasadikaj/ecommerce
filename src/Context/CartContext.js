@@ -22,7 +22,7 @@ export const useCart = () => {
     const removeFromCart = (articleId) => {
         setCartItems(prevItems => {
             const updatedItems = prevItems.map(item =>
-                item.id === articleId && item.quantity > 1
+                item.id === articleId && item.quantity > 0
                     ? { ...item, quantity: item.quantity - 1 }
                     : item
             ).filter(item => item.quantity > 0);
